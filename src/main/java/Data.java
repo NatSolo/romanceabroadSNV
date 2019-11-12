@@ -12,6 +12,8 @@ public class Data {
     //String expectedURLSingIn= "https://romanceabroad.com/content/users/login_form";
     //public static final String expectedURLSingIn = "https://romanceabroad.com/content/users/login_form";
     public static final int indexLinkSingIn = 0;
+    public static final String emailSignIn = "11@gmail.com";
+    public static final String  passwordSignIn = "gretta888";
 
 
 //HowWeWork Page

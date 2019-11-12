@@ -35,6 +35,9 @@ public class Locators {
 
     //SignIn page
     public static final  By LINK_SING_IN = By.id("ajax_login_link");
+    public static final  By FIELD_EMAIL_SIGN_IN = By.xpath("//input[@type='text'][@id='email']");
+    public static final By FIELD_PASSWORD_SIGN_IN= By.xpath("//input[@id='password'][@name='password']");
+    public static final By BUTTON_SIGN_IN = By.xpath("//button[@name='logbtn']");
 
     //StoreGift page
     public static final By LINK_STORE = By.cssSelector("a[href='https://romanceabroad.com/store/category-sweets']");
