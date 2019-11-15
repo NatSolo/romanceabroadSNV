@@ -1,10 +1,8 @@
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class BlogTests extends BaseUI{
+public class BlogTests extends BaseUI {
     String currentURLBlog;
-
 
 
     @Test

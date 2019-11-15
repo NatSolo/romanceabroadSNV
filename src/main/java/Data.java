@@ -3,8 +3,8 @@ public class Data {
     //Registration Page
     public static final String emailKey = "11@gmail.com";
     public static final String password = "11@gmail.com";
-    public static final String username = "gretta888";
-    public static final String phone = "8138888989";
+    public static final String username = "greta";
+    public static final String phone = "8138";
     public static final String mainURL = "https://romanceabroad.com/";
 
     //SingIn Page
@@ -13,7 +13,7 @@ public class Data {
     //public static final String expectedURLSingIn = "https://romanceabroad.com/content/users/login_form";
     public static final int indexLinkSingIn = 0;
     public static final String emailSignIn = "11@gmail.com";
-    public static final String  passwordSignIn = "gretta888";
+    public static final String  passwordSignIn = "greta";
 
 
 //HowWeWork Page

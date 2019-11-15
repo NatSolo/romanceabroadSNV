@@ -27,6 +27,12 @@ public class Locators {
     public static final By FIELD_USERNAME = By.cssSelector("#nickname");
     public static final By FIELD_PHONE = By.cssSelector(" input[name='data[phone]']");
     public static final By CHECK_BOX_CONFIRMATION = By.cssSelector("input#confirmation");
+    public static final By DROP_DOWN_BIRTH_DATE = By.cssSelector("#daySelect");
+    public static final By DROP_DOWN_BIRTH_DATE_SELECT = By.xpath("//li[@data-handler='selectDay']//a[text()='3']");
+    public static final By DROP_DOWN_BIRTH_MONTH = By.cssSelector("#monthSelect");
+    public static final By DROP_DOWN_BIRTH_MONTH_SELECT = By.xpath("//li[@data-handler='selectMonth']//a[text()='Jul']");
+    public static final By DROP_DOWN_BIRTH_YEAR = By.cssSelector("#yearSelect");
+    public static final By DROP_DOWN_BIRTH_YEAR_SELECT = By.xpath("//li[@data-handler='selectYear']//a[text()='1996']");
 
 
     //SearchPrettyWomen page
@@ -34,9 +40,9 @@ public class Locators {
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
 
     //SignIn page
-    public static final  By LINK_SING_IN = By.id("ajax_login_link");
-    public static final  By FIELD_EMAIL_SIGN_IN = By.xpath("//input[@type='text'][@id='email']");
-    public static final By FIELD_PASSWORD_SIGN_IN= By.xpath("//input[@id='password'][@name='password']");
+    public static final By LINK_SING_IN = By.id("ajax_login_link");
+    public static final By FIELD_EMAIL_SIGN_IN = By.xpath("//input[@type='text'][@id='email']");
+    public static final By FIELD_PASSWORD_SIGN_IN = By.xpath("//input[@id='password'][@name='password']");
     public static final By BUTTON_SIGN_IN = By.xpath("//button[@name='logbtn']");
 
     //StoreGift page
