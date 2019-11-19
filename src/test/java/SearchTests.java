@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,8 +15,38 @@ public class SearchTests extends BaseUI {
         System.out.println(currentURLSearch);
         Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
 
+    }@Test
+
+    public void testMainSearchAssertion() {
+        Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(),"Element is not displayed");
+        driver.findElement(Locators.LINK_SEARCH).click();
+        currentURLSearch = driver.getCurrentUrl();
+        System.out.println(currentURLSearch);
+        //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
+        softAssert.assertEquals(currentURLSearch, Data.expectedURLSearch, "URL is wrong");
+
+
     }
 
+    public void  validateAssertions() {
+
+            Assert.assertEquals("web", "web is");
+
+            driver.findElement(By.xpath("//a")).isDisplayed();
+
+            Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed());
+
+            boolean requirement = true;
+            Assert.assertTrue(requirement);
+
+            Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed(), "Element is not displayed");
+            Assert.fail("Element is not displayed");
+
+            //Soft Assertions
+
+
+
+    }
     @Test
     public void testDropDownListSortByIndex() {
         driver.findElement(Locators.LINK_SEARCH).click();

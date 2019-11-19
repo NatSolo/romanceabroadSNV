@@ -1,5 +1,7 @@
 public class Data {
 
+
+
     //Registration Page
     public static final String emailKey = "11@gmail.com";
     public static final String password = "11@gmail.com";
