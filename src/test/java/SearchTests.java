@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +18,7 @@ public class SearchTests extends BaseUI {
 
     }@Test
 
-    public void testMainSearchAssertion() {
+    public void testLinkSearchAssertion() {
         Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(),"Element is not displayed");
         driver.findElement(Locators.LINK_SEARCH).click();
         currentURLSearch = driver.getCurrentUrl();
@@ -27,27 +28,7 @@ public class SearchTests extends BaseUI {
 
 
     }
-
-    public void  validateAssertions() {
-
-            Assert.assertEquals("web", "web is");
-
-            driver.findElement(By.xpath("//a")).isDisplayed();
-
-            Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed());
-
-            boolean requirement = true;
-            Assert.assertTrue(requirement);
-
-            Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed(), "Element is not displayed");
-            Assert.fail("Element is not displayed");
-
-            //Soft Assertions
-
-
-
-    }
-    @Test
+     @Test
     public void testDropDownListSortByIndex() {
         driver.findElement(Locators.LINK_SEARCH).click();
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
@@ -70,6 +51,21 @@ public class SearchTests extends BaseUI {
         searchPage.getDropDownListByValue(dropDownListSortBy, Data.sortByValue);
 
     }
+    @Test
+    public void testUsersList(){
+        driver.findElement(Locators.LINK_SEARCH).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_ALBUMS)));
+        driver.findElement(Locators.LINK_ALBUMS);
+    }
 
+    public void testMainSearchAssertion2() {
+
+        Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
+        driver.findElement(Locators.LINK_SEARCH).click();
+        currentURLSearch = driver.getCurrentUrl();
+        System.out.println(currentURLSearch);
+        //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
+        softAssert.assertEquals(currentURLSearch, Data.expectedURLSearch, "URL is wrong");
+    }
 }
 

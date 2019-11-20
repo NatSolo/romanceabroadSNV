@@ -18,6 +18,8 @@ public class Locators {
 
     //Media
     public static final By LINK_MEDIA = By.xpath("//a[contains(@href, 'https://romanceabroad.com/media/index')]");
+    public static final By LINK_ALBUMS = By.xpath("//*[@id=\"gallery_filters\"]/li[4]");
+    public static final By LINK_VIDEO = By.xpath("//*[@id=\"gallery_filters\"]/li[3]");
 
     //Registration page
     public static final By LINK_BUTTON_REGISTRATION = By.xpath("//button[@id='show-registration-block']");
