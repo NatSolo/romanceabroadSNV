@@ -3,6 +3,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Exersizes extends BaseUI {
     String currentURLSearch;
 
@@ -11,7 +15,7 @@ public class Exersizes extends BaseUI {
         @Test
 //this method allows to find if the  variables are contained in the Data
         public void test1() {
-            String fruit = "kiwi";
+            String fruit = "I love kiwi";
 
             if (fruit.contains("kiwi")) {
                 System.out.println(("We can find our fruit!"));  //we can use other different functions that Idea suggests
@@ -79,8 +83,9 @@ public class Exersizes extends BaseUI {
             }
         }
     }
-//MostCommon Condition fo Intengers
 
+    //MostCommon Condition fo Intengers
+//this method allows to find if the  variables are contained or not in the Data
     @Test
     public void test7() {
         int number = 10;
@@ -115,16 +120,49 @@ public class Exersizes extends BaseUI {
         }
         System.out.println(sum);
     }
-    //MostCommon Condition for Elements
+
+    @Test
+    public void test23() {
+        boolean requirement = true;
+
+        if (requirement) {
+            System.out.println("Boolean is true");
+        } else {
+            Assert.fail("Boolean is false");
+        }
+    }
+
+    @Test
+    public void test24() {
+        boolean requirement = true;
+
+        if (!requirement) {
+            System.out.println("Boolean is false");
+        } else {
+            Assert.fail("Boolean is true");
+        }
+    }
+
+    //MostCommon Condition for WebElements
 
     @Test
     public void test12() {
 
-        WebElement tabSerch = driver.findElement(Locators.LINK_SEARCH);
-        if (tabSerch.getText().contains("PRETTY WOMEN")) {
-            tabSerch.click();
+        WebElement linkSearch = driver.findElement(Locators.LINK_SEARCH);
+        if (linkSearch.getText().contains("PRETTY WOMEN")) {
+            linkSearch.click();
         } else
-            Assert.fail("We can't find PrettyWomen tab");
+            Assert.fail("We can't find PrettyWomen link");
+    }
+
+    @Test
+    public void test12_1() {
+
+        WebElement linkSearch = driver.findElement(Locators.LINK_SEARCH);
+        if (linkSearch.isDisplayed()) {         // == if(driver.findElement(Locators.LINK_SEARCH).getText().contains("PRETTY WOMEN"))
+            linkSearch.click();
+        } else
+            Assert.fail("We can't find PrettyWomen link");
     }
 
     @Test
@@ -140,8 +178,11 @@ public class Exersizes extends BaseUI {
 
 //Assertions Variants
 
-    public void validateAssertions() {
+    /*public void validateAssertions() {
         Assert.assertEquals("web", "web is");
+       driver.findElement(By.xpath("//a")).isDisplayed();
+        Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed(), "Element is displayed");
+        Assert.fail("Element is not displayed");
     }
 
 
@@ -151,18 +192,19 @@ public class Exersizes extends BaseUI {
 
     public void validateAssertions2() {
         Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected()); //if it's radiobutton
     }
 
     public void validateAssertions3() {
         boolean requirement = true;
         Assert.assertTrue(requirement);
-    }
 
-    public void validateAssertion4() {
-        Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed(), "Element is not displayed");
-        Assert.fail("Element is not displayed");
-    }
-
+*/
+       /* //public void validateAssertion4() {
+            Assert.assertTrue(driver.findElement(By.xpath("//a")).isDisplayed(), "Element is not displayed");
+            Assert.fail("Element is not displayed");
+        }*/
+//hard Assertions
     @Test
     public void testMainRegistration() {
         mainPage.clickJoinButton();
@@ -170,9 +212,16 @@ public class Exersizes extends BaseUI {
         registrationPage.completeSecondPartOfRegistration();
         WebElement checkboxConfirmation = driver.findElement(Locators.CHECK_BOX_CONFIRMATION);
         Assert.assertTrue(driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected(), "Element is not selected");
+    }
+
 
         //OR
-
+        @Test
+        public void testMainRegistration1() {
+            mainPage.clickJoinButton();
+            registrationPage.completeFirstPartOfRegistration();
+            registrationPage.completeSecondPartOfRegistration();
+            WebElement checkboxConfirmation = driver.findElement(Locators.CHECK_BOX_CONFIRMATION);
         if (driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected()) {
             checkboxConfirmation.click();
         } else {
@@ -180,15 +229,25 @@ public class Exersizes extends BaseUI {
         }
 
     }
-        //or  soft Assertoins
-         @Test
-        public void testMainSearchAssertion2() {
 
-            Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
-            driver.findElement(Locators.LINK_SEARCH).click();
-            currentURLSearch = driver.getCurrentUrl();
-            System.out.println(currentURLSearch);
-            //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
-            softAssert.assertEquals(currentURLSearch, Data.expectedURLSearch, "URL is wrong");
-        }
+    //or  soft Assertoins
+    @Test
+    public void testMainSearchAssertion2() {
+
+        Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
+        driver.findElement(Locators.LINK_SEARCH).click();
+        currentURLSearch = driver.getCurrentUrl();
+        System.out.println(currentURLSearch);
+        //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
+        softAssert.assertEquals(currentURLSearch, Data.expectedURLSearch, "URL is wrong");
     }
+
+
+    }
+
+
+
+
+
+
+

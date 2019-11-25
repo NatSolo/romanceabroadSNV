@@ -16,6 +16,13 @@ public class MediaTests extends BaseUI {
     }
 
     @Test
+    public void testUsersList(){
+        driver.findElement(Locators.LINK_MEDIA).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_ALBUMS)));
+        driver.findElement(Locators.LINK_ALBUMS);
+    }
+
+    @Test
     public void testAlbumConditions() {
         driver.findElement(Locators.LINK_MEDIA).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_ALBUMS)));

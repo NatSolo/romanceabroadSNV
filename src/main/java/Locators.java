@@ -18,8 +18,8 @@ public class Locators {
 
     //Media
     public static final By LINK_MEDIA = By.xpath("//a[contains(@href, 'https://romanceabroad.com/media/index')]");
-    public static final By LINK_ALBUMS = By.xpath("//*[@id=\"gallery_filters\"]/li[4]");
-    public static final By LINK_VIDEO = By.xpath("//*[@id=\"gallery_filters\"]/li[3]");
+    public static final By LINK_ALBUMS = By.xpath("//a[@href='https://romanceabroad.com/media/albums']");
+    public static final By LINK_VIDEO = By.xpath("//a[@href='https://romanceabroad.com/media/video']");
 
     //Registration page
     public static final By LINK_BUTTON_REGISTRATION = By.xpath("//button[@id='show-registration-block']");
@@ -40,6 +40,8 @@ public class Locators {
     //SearchPrettyWomen page
     public static final By LINK_SEARCH = By.xpath("//a[contains(@href, 'https://romanceabroad.com/users/search')]");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
+    public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']  //a[text()='Search parameters']");
+
 
     //SignIn page
     public static final By LINK_SING_IN = By.id("ajax_login_link");
