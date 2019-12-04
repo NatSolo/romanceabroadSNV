@@ -40,7 +40,8 @@ public class Locators {
     //SearchPrettyWomen page
     public static final By LINK_SEARCH = By.xpath("//a[contains(@href, 'https://romanceabroad.com/users/search')]");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
-    public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']  //a[text()='Search parameters']");
+    public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button.mb10']//a[text()='Search parameters']");
+    //public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
 
 
     //SignIn page

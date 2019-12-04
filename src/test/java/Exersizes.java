@@ -131,17 +131,17 @@ public class Exersizes extends BaseUI {
             Assert.fail("Boolean is false");
         }
     }
-
     @Test
     public void test24() {
         boolean requirement = true;
 
-        if (!requirement) {
-            System.out.println("Boolean is false");
+        if (requirement) {
+            System.out.println("Boolean is true");
         } else {
-            Assert.fail("Boolean is true");
+            Assert.fail("Boolean is false");
         }
     }
+
 
     //MostCommon Condition for WebElements
 

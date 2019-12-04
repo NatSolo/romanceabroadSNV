@@ -57,7 +57,7 @@ public class ArrayListsAndLoops extends BaseUI {
                 }
 
     }
-    @Test
+   /* @Test
 
     public void test202() {
         List<WebElement> links = driver.findElements(By.xpath("//ul/li"));
@@ -68,9 +68,10 @@ public class ArrayListsAndLoops extends BaseUI {
             links.get(i).click();
             driver.get(Data.mainURL);
             links = driver.findElements(By.xpath("//ul/li"));  // find next element again and again
-        }
+        }*/
 //sometimes some of elements can be invisible. In this case we need find better locators
-    }@Test
+    
+    @Test
 
     public void test20() {
         List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));

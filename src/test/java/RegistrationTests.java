@@ -10,12 +10,12 @@ public class RegistrationTests extends BaseUI {
         registrationPage.completeFirstPartOfRegistration();
         registrationPage.completeSecondPartOfRegistration();
         WebElement checkboxConfirmation = driver.findElement(Locators.CHECK_BOX_CONFIRMATION);
-        //Assert.assertTrue(driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected(), "Element is not selected");
+        //Assert.assertTrue(driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected(), "Element is not selected"); or
 
         if (driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected()) {
-
-        } else {
             checkboxConfirmation.click();
+        } else {
+
             Assert.fail("Checkbox is already selected");
         }
 
