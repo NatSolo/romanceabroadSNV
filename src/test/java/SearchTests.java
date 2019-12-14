@@ -1,11 +1,8 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 public class SearchTests extends BaseUI {
 
     String currentURLSearch;
@@ -57,13 +54,14 @@ public class SearchTests extends BaseUI {
 
     }
 
+
     @Test
     public void testUsersList() {
         driver.findElement(Locators.LINK_SEARCH).click();
         Dimension d = new Dimension(300,1080);
         driver.manage().window().setSize(d);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.SEARCH_PARAMETERS_BUTTON)));
-        driver.findElement(Locators.SEARCH_PARAMETERS_BUTTON);
+        driver.findElement(Locators.SEARCH_PARAMETERS_BUTTON).click();
     }
 
     @Test
@@ -90,7 +88,7 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testMainSearchAssertion3() {
-
+       wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_SEARCH)));
         Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
         driver.findElement(Locators.LINK_SEARCH).click();
         currentURLSearch = driver.getCurrentUrl();
