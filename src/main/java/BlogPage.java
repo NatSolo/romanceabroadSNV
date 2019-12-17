@@ -11,5 +11,12 @@ public class BlogPage extends BaseActions {
         driver.findElement(Locators.LINK_BUTTON_REGISTRATION).click();
     }
 
+    String currentURLBlog;
+
+    public String verifyBlogLinkIsDisplayed(){
+        getNavigateToLinkPage(Locators.LINK_BLOG);
+        currentURLBlog = driver.getCurrentUrl();
+        return currentURLBlog;
+    }
 
 }

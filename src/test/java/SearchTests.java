@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,7 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testMainSearch() {
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
         Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
@@ -21,7 +22,7 @@ public class SearchTests extends BaseUI {
 
     public void testLinkSearchAssertion() {
         Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
         //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
@@ -32,7 +33,7 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testDropDownListSortByIndex() {
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByIndex(dropDownListSortBy, Data.sortByIndex);
 
@@ -40,7 +41,7 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testDropDownListSortByText() {
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByText(dropDownListSortBy, Data.sortByText);
 
@@ -48,7 +49,7 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testDropDownListSortByValue() {
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, Data.sortByValue);
 
@@ -57,17 +58,17 @@ public class SearchTests extends BaseUI {
 
     @Test
     public void testUsersList() {
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         Dimension d = new Dimension(300,1080);
         driver.manage().window().setSize(d);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.SEARCH_PARAMETERS_BUTTON)));
-        driver.findElement(Locators.SEARCH_PARAMETERS_BUTTON).click();
+        searchPage.getWebElement(Locators.SEARCH_PARAMETERS_BUTTON);
     }
 
     @Test
     public void testMainSearchAssertion2() {
 
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
         softAssert.assertEquals(currentURLSearch, Data.expectedURLSearch, "URL is wrong");
@@ -79,7 +80,7 @@ public class SearchTests extends BaseUI {
     public void testMainSearchAssertion2122() {
 
 // No needed isDisplayed here, it check same element in next action. // Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
 //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
@@ -90,7 +91,7 @@ public class SearchTests extends BaseUI {
     public void testMainSearchAssertion3() {
        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_SEARCH)));
         Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.getWebElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
         //Assert.assertEquals(currentURLSearch, Data.expectedURLSearch);
@@ -101,5 +102,6 @@ public class SearchTests extends BaseUI {
         softAssert.assertAll();
 
     }
+
 }
 

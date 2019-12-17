@@ -37,7 +37,7 @@ public class MediaTests extends BaseUI {
 
     @Test
     public void testVideoConditions() {
-        driver.findElement(Locators.LINK_MEDIA).click();
+        mediaPage.getWebElement(Locators.LINK_MEDIA);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_VIDEO)));
         driver.findElement(Locators.LINK_VIDEO);
         boolean videoString = true;

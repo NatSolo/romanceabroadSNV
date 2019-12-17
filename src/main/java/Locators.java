@@ -5,6 +5,7 @@ public class Locators {
     //MainPageTests
     public static final By LINK_YOUTUBE_ACCESS = By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']");
     public static final By BUTTON_YOUTUBE_ACCESS = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
+    public static final By TAB_OF_MAIN_PAGE = By.xpath("//ul[@class='navbar-nav']//li");
 
 
     //Tour page
@@ -15,6 +16,7 @@ public class Locators {
 
     //HowWeWork page
     public static final By LINK_HOW_WORK = By.cssSelector("a[href='https://romanceabroad.com/content/view/how-it-works']");
+    public static final By TITLE_OF_PAGE = By.xpath("//h1");
 
     //Media
     public static final By LINK_MEDIA = By.xpath("//a[contains(@href, 'https://romanceabroad.com/media/index')]");
@@ -37,11 +39,12 @@ public class Locators {
     public static final By DROP_DOWN_BIRTH_YEAR_SELECT = By.xpath("//li[@data-handler='selectYear']//a[text()='1996']");
 
 
-    //SearchPrettyWomen page
+    //Search/PrettyWomen page
     public static final By LINK_SEARCH = By.xpath("//a[contains(@href, 'https://romanceabroad.com/users/search')]");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
     public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
     //public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
+    public static final By IMAGES = By.xpath("//a[@class='g-pic-border g-rounded']");
 
 
     //SignIn page

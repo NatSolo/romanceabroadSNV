@@ -13,13 +13,13 @@ public class MainPageTests extends BaseUI {
         Thread.sleep(5000);
         WebElement ele = driver.findElement(Locators.LINK_YOUTUBE_ACCESS);
         driver.switchTo().frame(ele);
-        driver.findElement(Locators.BUTTON_YOUTUBE_ACCESS).click();
+        mainPage.getWebElement(Locators.BUTTON_YOUTUBE_ACCESS);
 
     }
     @Test
     public void testYoutubeAccessImplicit() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(Locators.LINK_YOUTUBE_ACCESS).click();
+        mainPage.getWebElement(Locators.LINK_YOUTUBE_ACCESS);
 
     }
 
