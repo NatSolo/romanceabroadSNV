@@ -1,27 +1,22 @@
-import com.sun.deploy.security.SelectableSecurityManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WebElementsArrayListsAndLoops extends BaseUI {
 
-
     @Test
 
     public void test20() {
-        List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));
+        List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
         System.out.println(links.size());
         for (int i = 0; i < links.size(); i++) {
             String info = links.get(i).getText();
             System.out.println(info);
             links.get(i).click();
             driver.get(Data.mainURL);
-            links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));  // find next element again and again
+            links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);  // find next element again and again
         }
     }
 
@@ -29,7 +24,6 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
 
     public void test2011() {
         String actualTitle;
-        String expectedTitleWork = "Ukrainian women for marriage";
 
         List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
         System.out.println(links.size());
@@ -38,9 +32,9 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
             System.out.println(info);
             links.get(i).click();
 
-            if (info.contains("WORK")) {
+            if (info.contains(Data.partHowItWorkName)) {
                 actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
-                Assert.assertEquals(expectedTitleWork, actualTitle);
+                Assert.assertEquals(Data.expectedTitleWork, actualTitle);
             }
 
             driver.get(Data.mainURL);
@@ -53,8 +47,6 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
     public void test2012() {
         String actualTitle;
         String actualUrlPrettyWomen;
-        String expectedTitlePrettyWomen = "Single Ukrainian women online";
-        String expectedUrlPrettyWomen = "https://romanceabroad.com/users/search";
 
 
         List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
@@ -64,12 +56,12 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
             System.out.println(info);
             links.get(i).click();
 
-            if (info.contains("PRETTY WOMEN")) {
+            if (info.contains(Data.namePrettyWomenTab)) {
                 actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
                 actualUrlPrettyWomen = driver.getCurrentUrl();
-                Assert.assertEquals(expectedTitlePrettyWomen, actualTitle);
-                Assert.assertEquals(expectedUrlPrettyWomen, actualUrlPrettyWomen);
-                driver.findElement(By.xpath("//a[@class='g-pic-border g-rounded']")).isDisplayed();
+                Assert.assertEquals(Data.expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(Locators.LINK_SEARCH, actualUrlPrettyWomen);
+               driver.findElement(Locators.TAB_LOCATION_AREA).isDisplayed();
             }
             driver.get(Data.mainURL);
             links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);  // find next element again and again
@@ -82,28 +74,26 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
         String actualTitle;
         String actualUrlPrettyWomen;
         String info;
-        String expectedTitlePrettyWomen = "Single Ukrainian women online";
-        String expectedUrlPrettyWomen = "https://romanceabroad.com/users/search";
-
 
         List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
-        System.out.println(links.size());
-        for (int i = 0; i < links.size(); i++) {
-            info = links.get(i).getText();
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            info = mainPage.getTabsList().get(i).getText();
             System.out.println(info);
-            links.get(i).click();
+            mainPage.getTabsList().get(i).click();
 
-            if (info.contains("PRETTY WOMEN")) {
+            if (info.contains(Data.namePrettyWomenTab)) {
                 actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
                 actualUrlPrettyWomen = driver.getCurrentUrl();
-                Assert.assertEquals(expectedTitlePrettyWomen, actualTitle);
-                Assert.assertEquals(expectedUrlPrettyWomen, actualUrlPrettyWomen);
+                Assert.assertEquals(
+                        Data.expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(Locators.LINK_SEARCH, actualUrlPrettyWomen);
                 driver.findElement(Locators.IMAGES).isDisplayed();
-                if (actualUrlPrettyWomen.contains("#")) {
-                    Assert.fail("It contains restricted #");  //this condition inside previous condition
+                if (actualUrlPrettyWomen.contains(Data.urlRestrition)) {
+                    Assert.fail(Data.urlRestritionFailNotice);  //this condition inside previous condition
 
                 } else {
-                    System.out.println("No spesial characters, it is good Url!!!");
+                    System.out.println(Data.urlRestritionPassNotice);
                 }
             }
             driver.get(Data.mainURL);
@@ -118,34 +108,33 @@ public class WebElementsArrayListsAndLoops extends BaseUI {
         String actualTitle;
         String actualUrlPrettyWomen;
         String info;
-        String expectedTitlePrettyWomen = "Single Ukrainian women online";
-        String expectedUrlPrettyWomen = "https://romanceabroad.com/users/search";
-
 
         List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
-        System.out.println(links.size());
-        for (int i = 0; i < links.size(); i++) {
-            info = links.get(i).getText();
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            info = mainPage.getTabsList().get(i).getText();
             System.out.println(info);
             //links.get(i).click();
-            mainPage.ajaxClick(links.get(i));
+            mainPage.ajaxClick(mainPage.getTabsList().get(i));
 
-            if (info.contains("PRETTY WOMEN")) {
-                actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
+            if (info.contains(Data.namePrettyWomenTab)) {
+                driver.findElement(Locators.LINK_SEARCH).click();
+                actualTitle = driver.findElement(Locators.TITLE_OF_PRETTY_WOMEN_PAGE).getText();
                 actualUrlPrettyWomen = driver.getCurrentUrl();
-                Assert.assertEquals(expectedTitlePrettyWomen, actualTitle);
-                Assert.assertEquals(expectedUrlPrettyWomen, actualUrlPrettyWomen);
+                Assert.assertEquals(Data.expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(Data.expectedURLSearch, actualUrlPrettyWomen);
                 driver.findElement(Locators.IMAGES).isDisplayed();
-                if (actualUrlPrettyWomen.contains("#")) {
-                    Assert.fail("It contains restricted #");  //this condition inside previous condition
+                if (actualUrlPrettyWomen.contains(Data.urlRestrition)) {
+                    Assert.fail(Data.urlRestritionFailNotice);  //this condition inside previous condition
 
                 } else {
-                    System.out.println("No spesial characters, it is good Url!!!");
+                    System.out.println(Data.urlRestritionPassNotice);
                 }
             }
             driver.get(Data.mainURL);
             links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);  // find next element again and again
         }
+
     }
 
 

@@ -6,7 +6,8 @@ public class Locators {
     public static final By LINK_YOUTUBE_ACCESS = By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']");
     public static final By BUTTON_YOUTUBE_ACCESS = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
     public static final By TAB_OF_MAIN_PAGE = By.xpath("//ul[@class='navbar-nav']//li");
-
+    public static final By TAB_LOCATION_AREA = By.xpath("//a[@class='g-pic-border g-rounded']");
+    public static final By PAGE_BOTTOM_LINK_SIGN_IN = By.xpath("//div[@class='col-lg-12 text-center']//a[@href='#']");
 
     //Tour page
     public static final By LINK_TOUR = By.xpath("//a[contains(@href, 'https://romanceabroad.com/store/sweets/20-tour_to_ukraine')]");
@@ -38,14 +39,13 @@ public class Locators {
     public static final By DROP_DOWN_BIRTH_YEAR = By.cssSelector("#yearSelect");
     public static final By DROP_DOWN_BIRTH_YEAR_SELECT = By.xpath("//li[@data-handler='selectYear']//a[text()='1996']");
 
-
     //Search/PrettyWomen page
     public static final By LINK_SEARCH = By.xpath("//a[contains(@href, 'https://romanceabroad.com/users/search')]");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
     public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
     //public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
     public static final By IMAGES = By.xpath("//a[@class='g-pic-border g-rounded']");
-
+    public static final By TITLE_OF_PRETTY_WOMEN_PAGE = By.xpath("//h1");
 
     //SignIn page
     public static final By LINK_SING_IN = By.id("ajax_login_link");

@@ -1,4 +1,3 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,39 +12,60 @@ public class MainPageTests extends BaseUI {
         Thread.sleep(5000);
         WebElement ele = driver.findElement(Locators.LINK_YOUTUBE_ACCESS);
         driver.switchTo().frame(ele);
-        mainPage.getWebElement(Locators.BUTTON_YOUTUBE_ACCESS);
+        driver.findElement(Locators.BUTTON_YOUTUBE_ACCESS);
 
     }
+
     @Test
     public void testYoutubeAccessImplicit() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        mainPage.getWebElement(Locators.LINK_YOUTUBE_ACCESS);
-
-    }
-
-    @Test
-    public void test12() {
-        ;
-        WebElement tabSerch = driver.findElement(Locators.LINK_BLOG );
-        if (tabSerch.getText().contains("BLOG")) {
-            tabSerch.click();
-        } else
-            Assert.fail("We can't find Blog tab");
-
+        driver.findElement(Locators.LINK_YOUTUBE_ACCESS);
 
     }
 
     @Test
 
     public void testPagesLinksList() {
-        List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));
-        System.out.println(links.size());
-        for (int i = 0; i <links.size(); i++) {
-            String info = links.get(i).getText();
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            String info = mainPage.getTabsList().get(i).getText();
             System.out.println(info);
-            links.get(i).click();
+            mainPage.getTabsList().get(i).click();
             driver.get(Data.mainURL);
-            links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));
+            mainPage.getTabsList();
+        }
+
+    }
+
+    @Test
+
+    public void titleAndUrlAssertionTest() {
+        String actualTitle;
+        String actualUrlPrettyWomen;
+        String info;
+
+        List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            info = mainPage.getTabsList().get(i).getText();
+            System.out.println(info);
+            mainPage.getTabsList().get(i).click();
+
+            if (info.contains(Data.namePrettyWomenTab)) {
+                actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
+                actualUrlPrettyWomen = driver.getCurrentUrl();
+                Assert.assertEquals(Data.expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(Locators.LINK_SEARCH, actualUrlPrettyWomen);
+                driver.findElement(Locators.IMAGES).isDisplayed();
+                if (actualUrlPrettyWomen.contains(Data.urlRestrition)) {
+                    Assert.fail(Data.urlRestritionFailNotice);  //this condition inside previous condition
+
+                } else {
+                    System.out.println(Data.urlRestritionPassNotice);
+                }
+            }
+            driver.get(Data.mainURL);
+            links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);  // find next element again and again
         }
 
     }

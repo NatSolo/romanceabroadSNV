@@ -6,7 +6,6 @@ public class MediaTests extends BaseUI {
     String currentURLMedia;
     String Albums;
 
-
     @Test
     public void testMainMedia() {
         driver.findElement(Locators.LINK_MEDIA).click();
@@ -16,7 +15,7 @@ public class MediaTests extends BaseUI {
     }
 
     @Test
-    public void testUsersList(){
+    public void testUsersList() {
         driver.findElement(Locators.LINK_MEDIA).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_ALBUMS)));
         driver.findElement(Locators.LINK_ALBUMS);
@@ -27,24 +26,24 @@ public class MediaTests extends BaseUI {
         driver.findElement(Locators.LINK_MEDIA).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_ALBUMS)));
         driver.findElement(Locators.LINK_ALBUMS);
-        String albums = "Albums";
-        if (albums.contains("Albums")) {
-            System.out.println("Correct string");
+
+        if (Data.expectedAlbumsName.contains(Data.albumsName)) {
+            System.out.println(Data.correctStringNotice);
         } else {
-            System.out.println("Incorrect string");
+            System.out.println(Data.incorrectStringNotice);
         }
     }
 
     @Test
     public void testVideoConditions() {
-        mediaPage.getWebElement(Locators.LINK_MEDIA);
+        driver.findElement(Locators.LINK_MEDIA).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LINK_VIDEO)));
         driver.findElement(Locators.LINK_VIDEO);
         boolean videoString = true;
         if (videoString) {
-            System.out.println("Correct string");
+            System.out.println(Data.correctStringNotice);
         } else {
-            System.out.println("Incorrect string");
+            System.out.println(Data.incorrectStringNotice);
         }
     }
 

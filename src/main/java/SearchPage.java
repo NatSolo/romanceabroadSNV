@@ -1,6 +1,5 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage extends BaseActions {
@@ -10,7 +9,15 @@ public class SearchPage extends BaseActions {
 
     }
 
+    public WebElement tabSearch() {
+        WebElement titleSearch = driver.findElement(Locators.LINK_BLOG);
+        return titleSearch;
 
+    }
 
+    public String getTextFromTabs() {
+        return tabSearch().getText();
+
+    }
 
 }

@@ -22,7 +22,7 @@ public class BaseActions {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public BaseActions(WebDriver driver, WebDriverWait wait){
+    public BaseActions(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
@@ -35,64 +35,66 @@ public class BaseActions {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
-    public void ajaxClick(By by){
+    public void ajaxClick(By by) {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
         wait.until(ExpectedConditions.elementToBeClickable(by));
         ajaxClick(driver.findElement(by));
     }
 
-    public void ajaxClick(By by, int index){
+    public void ajaxClick(By by, int index) {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
         wait.until(ExpectedConditions.elementToBeClickable(by));
         ajaxClick(driver.findElements(by).get(index));
     }
+
     //mouse clicks
-    public void performClick(By locator){
+    public void performClick(By locator) {
         WebElement element = driver.findElement(locator);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         actions.click().build().perform();
     }
 
-    public void performClick(By locator, int index){
+    public void performClick(By locator, int index) {
         WebElement element = driver.findElements(locator).get(index);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         actions.click().build().perform();
     }
-//checkboxClick
-    public void performClick(WebElement element){
+
+    //checkboxClick
+    public void performClick(WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         actions.click().build().perform();
     }
 
-    public void clickUnselectedCheckbox(By checkbox){
+    public void clickUnselectedCheckbox(By checkbox) {
         WebElement currentCheckbox = driver.findElement(checkbox);
-        if (!currentCheckbox.isSelected()){
+        if (!currentCheckbox.isSelected()) {
             ajaxClick(currentCheckbox);
         }
     }
 
-    public void clickUnselectedCheckbox(WebElement currentCheckbox){
-        if (!currentCheckbox.isSelected()){
+    public void clickUnselectedCheckbox(WebElement currentCheckbox) {
+        if (!currentCheckbox.isSelected()) {
             ajaxClick(currentCheckbox);
         }
     }
 
-    public void clickUnselectedCheckbox(By checkbox, int index){
+    public void clickUnselectedCheckbox(By checkbox, int index) {
         WebElement currentCheckbox = driver.findElements(checkbox).get(index);
-        if (!currentCheckbox.isSelected()){
+        if (!currentCheckbox.isSelected()) {
             ajaxClick(currentCheckbox);
         }
     }
 
     // Scrolls
-    public void scrollToBottomOfPage(){
+    public void scrollToBottomOfPage() {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
-    public void ajaxScroll(WebElement element){
+    public void ajaxScroll(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
@@ -101,110 +103,103 @@ public class BaseActions {
         ajaxScroll(driver.findElements(by).get(index));
     }
 
-    public void ajaxScrollUp(){
+    public void ajaxScrollUp() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-250)", "");
     }
-public void getNavigateToLinkPage(By locator){
+
+    public void getNavigateToLinkPage(By locator) {
         WebElement element = driver.findElement(locator);
         boolean elementIsDisplayed = element.isDisplayed();
-        if (element.isDisplayed()){
+        if (element.isDisplayed()) {
             System.out.println(elementIsDisplayed + " " + "element is displayed");
-             }
-        else
+        } else
             System.out.println(elementIsDisplayed + " " + "element is not displayed");
-}
+    }
 
-public void  getWebElement(By locator){
-    driver.findElement(locator).click();
-}
-public void getTextString(By locator, String text){
+    public void getTextString(By locator, String text) {
         driver.findElement(locator).getText();
-    System.out.println(text);
-}
-public void getTextNumber(By locator, int number){
-    driver.findElement(locator).getText();
-    System.out.println(number);
-}
-public void getBackStep(){
-        driver.navigate().back();
+        System.out.println(text);
+    }
 
-}
-public void getClickByMouse(WebElement element){
+    public void getTextNumber(By locator, int number) {
+        driver.findElement(locator).getText();
+        System.out.println(number);
+    }
+
+    public void getBackStep() {
+        driver.navigate().back();
+    }
+
+    public void getClickByMouse(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();
-}
+    }
 
-    public static String generateNewNumber(String name, int length){
+    public static String generateNewNumber(String name, int length) {
 
         return name + RandomStringUtils.random(length, "172984757");
     }
 
-    public void getDropDownListByIndex(WebElement element, int index){
+    public void getDropDownListByIndex(WebElement element, int index) {
         Select select = new Select(element);
         select.selectByIndex(index);
     }
-    public void getDropDownListByIndex(By locator, int index){
+
+    public void getDropDownListByIndex(By locator, int index) {
         Select select = new Select(driver.findElement(locator));
         select.selectByIndex(index);
     }
 
-    public void getDropDownListByText(WebElement element, String text){
+    public void getDropDownListByText(WebElement element, String text) {
         Select select = new Select(element);
         select.selectByVisibleText(text);
-
     }
 
-    public void getDropDownListByValue(WebElement element, String value){
+    public void getDropDownListByValue(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByValue(value);
     }
 
-
-
-
-    public void javaWait(int ms){
+    public void javaWait(int ms) {
         System.out.println("Parent!!!!");
         try {
             Thread.sleep(ms);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void javaWaitSec(int sec){
+    public void javaWaitSec(int sec) {
         try {
             Thread.sleep(sec * 1000);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    public void ajaxSendKeys(WebElement element, String text){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text +"')", element);
+
+    public void ajaxSendKeys(WebElement element, String text) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')", element);
     }
 
-
-
-
-
-    public static String generateRandomString(){
+    public static String generateRandomString() {
         return new BigInteger(120, new SecureRandom()).toString(32);
     }
 
     //Method for random choice from dropdown list
-    public void selectItemDropDownRandomOption(By locator, String dropDownName){
+    public void selectItemDropDownRandomOption(By locator, String dropDownName) {
         try {
             WebElement element = driver.findElement(locator);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
             Select select = new Select(driver.findElement(locator));
             select.selectByIndex((int) (Math.random() * (select.getOptions().size() - 1)) + 1);
             System.out.println(dropDownName + ": " + select.getFirstSelectedOption().getText());
-        } catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
 
         }
     }
 
-    public void checkLinksOnWebPage(String typeElement, String attribute){
+    public void checkLinksOnWebPage(String typeElement, String attribute) {
 
         List<WebElement> links = driver.findElements(By.xpath(typeElement));
 
@@ -217,24 +212,25 @@ public void getClickByMouse(WebElement element){
 
         System.out.println("Total links are " + links.size());
     }
+
     // Method for link verification
-    public void verifyLinkActive (String linkUrl){
+    public void verifyLinkActive(String linkUrl) {
         try {
             URL url = new URL(linkUrl);
             HttpURLConnection httpURLConnect = (HttpURLConnection) url.openConnection();
             httpURLConnect.setConnectTimeout(3000);
             httpURLConnect.connect();
-            if (httpURLConnect.getResponseCode() == 200){
+            if (httpURLConnect.getResponseCode() == 200) {
                 System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage());
-            }
-            else  if (httpURLConnect.getResponseCode() >=400 && httpURLConnect.getResponseCode()<= 504){
+            } else if (httpURLConnect.getResponseCode() >= 400 && httpURLConnect.getResponseCode() <= 504) {
                 System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage() + " - " + httpURLConnect.getResponseMessage());
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public int getSizeDropDownList(By locator) {
         try {
             WebElement element = driver.findElement(locator);
@@ -249,8 +245,5 @@ public void getClickByMouse(WebElement element){
         return 0;
 
     }
-
-
-
 
 }

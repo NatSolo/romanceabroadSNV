@@ -12,6 +12,4 @@ public class HowItWorkPage extends BaseActions {
     }
 
 
-
-
 }

@@ -10,7 +10,6 @@ public class IntegersArrayListAndLoop {
 
         for (int i = 0; i < 50; i++) {
             System.out.println("Hi guys!");
-
         }
     }
 
@@ -20,7 +19,6 @@ public class IntegersArrayListAndLoop {
         for (int i = 0; i < fruitsList1.size(); i++) {
             int element = fruitsList1.get(i);
             System.out.println(element);
-
         }
 
     }
@@ -38,6 +36,5 @@ public class IntegersArrayListAndLoop {
         }
 
     }
-
 
 }

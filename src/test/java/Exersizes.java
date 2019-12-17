@@ -1,11 +1,6 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Exersizes extends BaseUI {
     String currentURLSearch;
@@ -131,6 +126,7 @@ public class Exersizes extends BaseUI {
             Assert.fail("Boolean is false");
         }
     }
+
     @Test
     public void test24() {
         boolean requirement = true;
@@ -215,13 +211,13 @@ public class Exersizes extends BaseUI {
     }
 
 
-        //OR
-        @Test
-        public void testMainRegistration1() {
-            mainPage.clickJoinButton();
-            registrationPage.completeFirstPartOfRegistration();
-            registrationPage.completeSecondPartOfRegistration();
-            WebElement checkboxConfirmation = driver.findElement(Locators.CHECK_BOX_CONFIRMATION);
+    //OR
+    @Test
+    public void testMainRegistration1() {
+        mainPage.clickJoinButton();
+        registrationPage.completeFirstPartOfRegistration();
+        registrationPage.completeSecondPartOfRegistration();
+        WebElement checkboxConfirmation = driver.findElement(Locators.CHECK_BOX_CONFIRMATION);
         if (driver.findElement(Locators.CHECK_BOX_CONFIRMATION).isSelected()) {
             checkboxConfirmation.click();
         } else {
@@ -243,7 +239,7 @@ public class Exersizes extends BaseUI {
     }
 
 
-    }
+}
 
 
 

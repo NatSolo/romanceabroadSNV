@@ -13,7 +13,7 @@ public class BlogPage extends BaseActions {
 
     String currentURLBlog;
 
-    public String verifyBlogLinkIsDisplayed(){
+    public String verifyBlogLinkIsDisplayed() {
         getNavigateToLinkPage(Locators.LINK_BLOG);
         currentURLBlog = driver.getCurrentUrl();
         return currentURLBlog;

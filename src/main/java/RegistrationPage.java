@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
 
 public class RegistrationPage extends BaseActions {
@@ -34,6 +33,5 @@ public class RegistrationPage extends BaseActions {
         driver.findElement(Locators.CHECK_BOX_CONFIRMATION).click();
 
     }
-
 
 }

@@ -15,7 +15,7 @@ public class SignInTests extends BaseUI {
         driver.findElement(Locators.FIELD_EMAIL_SIGN_IN).sendKeys(Data.emailSignIn);
         driver.findElement(Locators.FIELD_PASSWORD_SIGN_IN).sendKeys(Data.passwordSignIn);
         wait.until(ExpectedConditions.elementToBeClickable(Locators.BUTTON_SIGN_IN));
-        signInPage.getWebElement(Locators.BUTTON_SIGN_IN);
+        driver.findElement(Locators.BUTTON_SIGN_IN);
 
     }
 }

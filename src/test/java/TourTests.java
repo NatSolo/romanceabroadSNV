@@ -7,7 +7,7 @@ public class TourTests extends BaseUI {
 
     @Test
     public void testMainTour() {
-        tourPage.getWebElement(Locators.LINK_TOUR);
+        driver.findElement(Locators.LINK_TOUR);
         currentURLTour = driver.getCurrentUrl();
         System.out.println(currentURLTour);
         Assert.assertEquals(currentURLTour, Data.exepectedURLTour);

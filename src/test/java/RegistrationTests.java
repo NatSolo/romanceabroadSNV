@@ -16,7 +16,7 @@ public class RegistrationTests extends BaseUI {
             checkboxConfirmation.click();
         } else {
 
-            Assert.fail("Checkbox is already selected");
+            Assert.fail(Data.checkboxSelectConfirmation);
         }
 
     }
@@ -30,7 +30,7 @@ public class RegistrationTests extends BaseUI {
         if (!checkbox.isSelected()) {
             checkbox.click();
         } else
-            System.out.println("The Checkbox has already selected on RegistrationPage");
+            System.out.println(Data.checkboxSelectConfirmation);
     }
 
 }

@@ -25,10 +25,9 @@ public class BaseUI {
     TourPage tourPage;
     SoftAssert softAssert = new SoftAssert();
 
-
     @BeforeMethod
     @Parameters("browser")
-    public void setup(@Optional("chrome") String browser, Method method){
+    public void setup(@Optional("chrome") String browser, Method method) {
 
         // Check if parameter passed from TestNG is 'firefox'
         if (browser.equalsIgnoreCase("firefox")) {
@@ -48,20 +47,18 @@ public class BaseUI {
             driver = new InternetExplorerDriver();
             driver.manage().deleteAllCookies();
 
-
         } else {
             System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
             driver = new ChromeDriver();
             driver.get("chrome://settings/clearBrowserData");
         }
 
-
         wait = new WebDriverWait(driver, 20);
         mainPage = new MainPage(driver, wait);
         searchPage = new SearchPage(driver, wait);
         registrationPage = new RegistrationPage(driver, wait);
         blogPage = new BlogPage(driver, wait);
-        howItWorkPage = new HowItWorkPage(driver,wait);
+        howItWorkPage = new HowItWorkPage(driver, wait);
         mediaPage = new MediaPage(driver, wait);
         signInPage = new SignInPage(driver, wait);
         storePage = new StorePage(driver, wait);
@@ -71,7 +68,7 @@ public class BaseUI {
     }
 
     @AfterMethod
-    public void afterActions () {
+    public void afterActions() {
         // driver.quit();
     }
 }
