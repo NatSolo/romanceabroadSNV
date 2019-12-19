@@ -29,13 +29,15 @@ public class MainPage extends BaseActions {
     }
 
     public List<WebElement> getTabsList() {
-        List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));
+        List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
         return links;
 
     }
-    public List<WebElement> getTabListNumbers(){
-       List<WebElement> list = (List<WebElement>) driver.findElement(Locators.TAB_OF_MAIN_PAGE).getSize();
-       return list;
+
+
+    public Integer getTabListNumbers(){
+        int listSize = driver.findElements(Locators.TAB_OF_MAIN_PAGE).size();
+        return listSize;
     }
 }
 
