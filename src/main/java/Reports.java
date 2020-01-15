@@ -1,5 +1,3 @@
-
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -15,18 +13,14 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 
 
 public class Reports {
-    private static final boolean jenkinsOption = false;
+    private static final boolean jenkinsOption = true;
 
     //initialize the HtmlReporter
-    public static ExtentHtmlRporter htmlReporter;
+    public static ExtentHtmlReporter htmlReporter;
 
     //initialize com.benefithub.TestReports and attach the HtmlReporter
     public static ExtentReports extent;
