@@ -14,8 +14,10 @@ public class BlogTests extends BaseUI {
 
     @Test
     public void linkVerification() {
+        driver.findElement(Locators.LINK_BLOG).click();
+        currentURLBlog = driver.getCurrentUrl();
         String blogLink = blogPage.verifyBlogLinkIsDisplayed();
         Assert.assertEquals(blogLink, Data.expectedURLBlog);
-        driver.navigate().to(Data.mainURL);
+        driver.navigate().to(Data.expectedURLBlog);
     }
 }

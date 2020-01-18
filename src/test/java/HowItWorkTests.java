@@ -7,7 +7,7 @@ public class HowItWorkTests extends BaseUI {
 
     @Test
     public void testMainHowItWork() {
-        driver.findElement(Locators.LINK_HOW_WORK);
+        driver.findElement(Locators.LINK_HOW_WORK).click();
         getCurrentURLHowWork = driver.getCurrentUrl();
         System.out.println(getCurrentURLHowWork);
         Assert.assertEquals(getCurrentURLHowWork, Data.expectedURLHowWork);
