@@ -40,12 +40,13 @@ public class Locators {
     public static final By DROP_DOWN_BIRTH_YEAR_SELECT = By.xpath("//li[@data-handler='selectYear']//a[text()='1996']");
 
     //Search/PrettyWomen page
-    public static final By LINK_SEARCH = By.xpath("//a[contains(@href, 'https://romanceabroad.com/users/search')]");
+    public static final By LINK_SEARCH = By.xpath("//*[@id=\"navbarResponsive\"]//a[@href='https://romanceabroad.com/users/search']");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
     public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
     //public static final By SEARCH_PARAMETERS_BUTTON = By.xpath("//div[@class='search-param-button mb10']//a[text()='Search parameters']");
     public static final By IMAGES = By.xpath("//a[@class='g-pic-border g-rounded']");
     public static final By TITLE_OF_PRETTY_WOMEN_PAGE = By.xpath("//h1");
+    public static final By DROP_DOWN_LIST_SORT_BY_MAX_AGR = By.cssSelector("select#age_max");
 
     //SignIn page
     public static final By LINK_SING_IN = By.id("ajax_login_link");

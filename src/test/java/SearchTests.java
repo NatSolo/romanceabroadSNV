@@ -136,5 +136,74 @@ public class SearchTests extends BaseUI {
         }
 
     }
+    @Test
+
+    public void testPagesLinksList() {
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            String info = mainPage.getTabsList().get(i).getText();
+            System.out.println(info);
+            mainPage.getTabsList().get(i).click();
+            driver.get(Data.mainURL);
+            mainPage.getTabsList();
+        }
+
+    }
+
+    @Test
+
+    public void titleAndUrlAssertionTest() {
+        String actualTitle;
+        String actualUrlPrettyWomen;
+        String info;
+
+        List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+        System.out.println(mainPage.getTabsList().size());
+        for (int i = 0; i < mainPage.getTabsList().size(); i++) {
+            info = mainPage.getTabsList().get(i).getText();
+            System.out.println(info);
+            mainPage.getTabsList().get(i).click();
+
+            if (info.contains(Data.namePrettyWomenTab)) {
+                actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
+                actualUrlPrettyWomen = driver.getCurrentUrl();
+                Assert.assertEquals(Data.expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(Locators.LINK_SEARCH, actualUrlPrettyWomen);
+                driver.findElement(Locators.IMAGES).isDisplayed();
+                if (actualUrlPrettyWomen.contains(Data.urlRestrition)) {
+                    Assert.fail(Data.urlRestritionFailNotice);  //this condition inside previous condition
+
+                } else {
+                    System.out.println(Data.urlRestritionPassNotice);
+                }
+            }
+            driver.get(Data.mainURL);
+            links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);  // find next element again and again
+        }
+
+    }
+
+    @Test
+    public void testLinksOnMainPage() {
+        mainPage.checkLinksOnWebPage("//a", "href");
+        mainPage.checkLinksOnWebPage("//img", "src");
+        driver.findElements(Locators.LINK_SEARCH);
+        mainPage.checkLinksOnWebPage("//a", "href");
+        mainPage.checkLinksOnWebPage("//img", "src");
+    }
+
+
+    @Test
+    public void selectRandomDropdownList() {
+
+        driver.findElement(Locators.LINK_SEARCH).click();
+        int sizeDropDownList = searchPage.getSizeDropDownList(Locators.DROP_DOWN_LIST_SORT_BY_MAX_AGR);
+
+        for (int i = 0; i < sizeDropDownList; i++) {
+            searchPage.selectItemDropDownRandomOption(Locators.DROP_DOWN_LIST_SORT_BY_MAX_AGR, "Sort by");
+            mainPage.javaWaitSec(3);
+        }
+    }
+
 }
 

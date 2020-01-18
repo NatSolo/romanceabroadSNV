@@ -7,7 +7,7 @@ public class StoreTests extends BaseUI {
 
     @Test
     public void testMainStore() {
-        driver.findElement(Locators.LINK_STORE);
+        driver.findElement(Locators.LINK_STORE).click();
         currentURLStore = driver.getCurrentUrl();
         System.out.println(currentURLStore);
         Assert.assertEquals(currentURLStore, Data.expectedURLStore);

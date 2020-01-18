@@ -43,8 +43,16 @@ public class MediaTests extends BaseUI {
         if (videoString) {
             System.out.println(Data.correctStringNotice);
         } else {
-            System.out.println(Data.incorrectStringNotice);
+            System.out.println(Data.incorrectStringNotice );
         }
+    }
+    @Test
+    public void testMediaPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(Locators.LINK_MEDIA));
+        driver.findElement(Locators.LINK_MEDIA).click();
+        currentURLMedia = driver.getCurrentUrl();
+        System.out.println(currentURLMedia);
+        Assert.assertEquals(currentURLMedia, Data.expectedURLMedia);
     }
 
 }
