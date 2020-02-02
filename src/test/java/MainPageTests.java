@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,6 +23,16 @@ public class MainPageTests extends BaseUI {
         driver.findElement(Locators.LINK_YOUTUBE_ACCESS);
 
     }
+
+    @Test
+    public void smokeTestMainPage(){
+        List<WebElement>mainTabs = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+        for (int i = 0; i <mainTabs.size() ; i++) {
+            mainTabs.get(i).click();driver.get((Data.mainURL));mainTabs = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+
+        }
+    }
+
 
 
 }

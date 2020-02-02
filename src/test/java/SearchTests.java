@@ -10,8 +10,14 @@ public class SearchTests extends BaseUI {
 
     String currentURLSearch;
 
-    @Test
-    public void testMainSearch() {
+    public static final boolean testCase11 = true;
+    //public static final boolean testCase12 = false; // means disabled
+    public static final boolean testCase12 = true; // means disabled
+    public static final boolean testCase13 = true;
+
+
+    @Test (priority = 1, enabled = testCase11, groups = "ie")
+    public void testMainSearchtestCase11() {
         driver.findElement(Locators.LINK_SEARCH);
         currentURLSearch = driver.getCurrentUrl();
         System.out.println(currentURLSearch);
@@ -39,16 +45,16 @@ public class SearchTests extends BaseUI {
 
     }
 
-    @Test
-    public void testDropDownListSortByText() {
+    @Test(priority = 2, enabled = testCase12, groups = {"ie","user", "admin"})
+    public void testDropDownListSortByTexttestCase12() {
         driver.findElement(Locators.LINK_SEARCH);
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByText(dropDownListSortBy, Data.sortByText);
 
     }
 
-    @Test
-    public void testDropDownListSortByValue() {
+    @Test(priority = 3, enabled = testCase13, groups = {"user", "admin"})
+    public void testDropDownListSortByValuetestCase13() {
         driver.findElement(Locators.LINK_SEARCH);
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, Data.sortByValue);

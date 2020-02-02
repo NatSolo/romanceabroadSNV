@@ -2,6 +2,7 @@ public class Data {
     //Main Page
     public static final String namePrettyWomenTab = "PRETTY WOMEN";
 
+
     //Registration Page
     public static final String emailKey = "11@gmail.com";
     public static final String password = "11@gmail.com";
