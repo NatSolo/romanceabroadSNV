@@ -26,18 +26,20 @@ public class Locators {
 
     //Registration page
     public static final By LINK_BUTTON_REGISTRATION = By.xpath("//button[@id='show-registration-block']");
-    public static final By FIELD_EMAIL = By.cssSelector("input#email");
-    public static final By FIELD_PASSWORD = By.cssSelector("input#password");
+    public static final By TEXT_FIELD_EMAIL = By.cssSelector("input#email");
+    public static final By TEXT_FIELD_PASSWORD = By.cssSelector("input#password");
     public static final By BUTTON_NEXT = By.xpath("//button[@data-action='next-page'][text()='Next']");
-    public static final By FIELD_USERNAME = By.cssSelector("#nickname");
-    public static final By FIELD_PHONE = By.cssSelector(" input[name='data[phone]']");
+    public static final By TEXT_FIELD_USERNAME = By.cssSelector("#nickname");
+    public static final By TEXT_FIELD_PHONE = By.cssSelector(" input[name='data[phone]']");
     public static final By CHECK_BOX_CONFIRMATION = By.cssSelector("input#confirmation");
-    public static final By DROP_DOWN_BIRTH_DATE = By.cssSelector("#daySelect");
-    public static final By DROP_DOWN_BIRTH_DATE_SELECT = By.xpath("//li[@data-handler='selectDay']//a[text()='3']");
-    public static final By DROP_DOWN_BIRTH_MONTH = By.cssSelector("#monthSelect");
-    public static final By DROP_DOWN_BIRTH_MONTH_SELECT = By.xpath("//li[@data-handler='selectMonth']//a[text()='Jul']");
-    public static final By DROP_DOWN_BIRTH_YEAR = By.cssSelector("#yearSelect");
-    public static final By DROP_DOWN_BIRTH_YEAR_SELECT = By.xpath("//li[@data-handler='selectYear']//a[text()='1996']");
+    public static final By LIST_BIRTH_DAY = By.cssSelector("#daySelect");
+    public static final By LIST_VALUE_BIRTH_DAY = By.xpath("//li[@data-handler='selectDay']");
+    public static final By LIST_BIRTH_MONTH = By.cssSelector("#monthSelect");
+    public static final By LIST_VALUE_BIRTH_MONTH = By.xpath("//li[@data-handler='selectMonth']");
+    public static final By LIST_BIRTH_YEAR = By.cssSelector("#yearSelect");
+    public static final By LIST_VALUE_BIRTH_YEAR = By.xpath("//li[@data-handler='selectYear']");
+    public static final By LIST_VALUE_LOCATION = By.xpath("//div[@class='dropdown dropdown_location']//ul//li");
+    public static final By AUTOFILLING_FORM_LOCATION = By.xpath("//input[@name='region_name']");
 
     //Search/PrettyWomen page
     public static final By LINK_SEARCH = By.xpath("//*[@id=\"navbarResponsive\"]//a[@href='https://romanceabroad.com/users/search']");
@@ -50,12 +52,23 @@ public class Locators {
 
     //SignIn page
     public static final By LINK_SING_IN = By.id("ajax_login_link");
-    public static final By FIELD_EMAIL_SIGN_IN = By.xpath("//input[@type='text'][@id='email']");
-    public static final By FIELD_PASSWORD_SIGN_IN = By.xpath("//input[@id='password'][@name='password']");
+    public static final By TEXT_FIELD_EMAIL_SIGN_IN = By.xpath("//input[@type='text'][@id='email']");
+    public static final By TEXT_FIELD_PASSWORD_SIGN_IN = By.xpath("//input[@id='password'][@name='password']");
     public static final By BUTTON_SIGN_IN = By.xpath("//button[@name='logbtn']");
 
     //StoreGift page
     public static final By LINK_STORE = By.cssSelector("a[href='https://romanceabroad.com/store/category-sweets']");
+
+    //ContactUs
+    public static final By LINK_CONTACT_US = By.xpath("//a[@href='https://romanceabroad.com/tickets/']");
+    public static final By LINK_REASON = By.xpath("//select[@name='id_reason']");
+    public static final By LINK_VALUE_REASON = By.xpath("//span[@class='pginfo msg reason']");
+    public static final By TEXT_FIELD_YOUR_NAME = By.xpath("//input[@name='user_name']");
+    public static final By TEXT_FIELD_SUBJECT = By.xpath("//input[@name='subject']");
+    public static final By TEXT_FIELD_YOUR_EMAIL = By.xpath("//input[@name='user_email']");
+    public static final By TEXT_FIELD_MESSAGE = By.xpath("//textarea[@name='message']");
+
+
 
 
 }

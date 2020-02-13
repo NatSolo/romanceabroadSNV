@@ -4,10 +4,17 @@ public class Data {
 
 
     //Registration Page
-    public static final String emailKey = "11@gmail.com";
+    public static final String email = "11@gmail.com";
     public static final String password = "11@gmail.com";
     public static final String username = "greta";
     public static final String phone = "8138";
+    public static final String month = "May";
+    public static final String day = "1";
+    public static final String year = "1998";
+    public static final String city = "Sydney";
+    public static final String location = "North Sydney, State of New South Wales, Australia";
+
+
     public static final String mainURL = "https://romanceabroad.com/";
     public static final String checkboxSelectConfirmation = "The Checkbox is already selected on RegistrationPage";
     //SingIn Page
@@ -51,5 +58,11 @@ public class Data {
     public static final String  incorrectStringNotice = "Incorrect string";
     public static final String  wrongUrlNotice = "URL is wrong";
     public static final String notDisplayedElementNotice = "Element is not displayed";
+
+    //ContactUs
+    public static final String reason = "Technical Support";
+    public static final String nameForContactUs = "Luke";
+    public static final String subject = "Technical Support";
+    public static final String messageToContactUs = "How can I get an gerl email?";
 
 }
