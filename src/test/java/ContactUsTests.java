@@ -9,7 +9,8 @@ public class ContactUsTests extends BaseUI {
         driver.findElement(Locators.LINK_MEDIA).click();
         wait.until(ExpectedConditions.elementToBeClickable(Locators.LINK_CONTACT_US));
         driver.findElement(Locators.LINK_CONTACT_US).click();
-        mainPage.completeAdministratorForm(Data.reason, Data.nameForContactUs, Data.email, Data.subject, Data.messageToContactUs);
+        contactUsPage.completeAdministratorForm(Data.reason, Data.nameForContactUs, Data.email,
+                Data.subject, Data.messageToContactUs);
 
     };
 
