@@ -19,6 +19,7 @@ public class BaseUI {
     SearchPage searchPage;
     RegistrationPage registrationPage;
     BlogPage blogPage;
+    ContactUsPage contactUsPage;
     HowItWorkPage howItWorkPage;
     MediaPage mediaPage;
     SignInPage signInPage;
@@ -60,6 +61,7 @@ public class BaseUI {
         searchPage = new SearchPage(driver, wait);
         registrationPage = new RegistrationPage(driver, wait);
         blogPage = new BlogPage(driver, wait);
+        contactUsPage = new ContactUsPage(driver, wait);
         howItWorkPage = new HowItWorkPage(driver, wait);
         mediaPage = new MediaPage(driver, wait);
         signInPage = new SignInPage(driver, wait);
