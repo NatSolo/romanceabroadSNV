@@ -2,6 +2,10 @@ import org.openqa.selenium.By;
 
 public class Locators {
 
+    // All page
+    public static final By H1_TITLE = By.xpath("//h1");
+
+
     //MainPageTests
     public static final By LINK_YOUTUBE_ACCESS = By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']");
     public static final By BUTTON_YOUTUBE_ACCESS = By.xpath("//button[@class='ytp-large-play-button ytp-button']");
@@ -14,6 +18,7 @@ public class Locators {
 
     //Blog page
     public static final By LINK_BLOG = By.xpath("//a[contains(@href, 'https://romanceabroad.com/content/view/blog')]");
+    public static final By LINKS_OF_BLOG_ARTICLES = By.xpath("//ul[@class='nav nav-pills nav-stacked content-pages-tree']//li");
 
     //HowWeWork page
     public static final By LINK_HOW_WORK = By.cssSelector("a[href='https://romanceabroad.com/content/view/how-it-works']");
